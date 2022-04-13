@@ -1,0 +1,175 @@
+*{
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    font-family: 'Work Sans', sans-serif;
+
+}
+.team-container,.career-container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom:3rem;
+}
+.center{
+    padding:0rem 2rem;
+}
+.create-team{
+    width:45%;
+}
+.view-team
+{
+    width:45%;
+}
+.create-team-title{
+    margin-bottom: 1rem;
+    
+}
+.form-container
+{
+    margin-top:2rem;
+    padding:0 1rem;
+}
+.main-contactus__contactform{
+    margin-top:1rem;
+    background-color: #fff;
+    padding:1rem 2rem;
+}
+.main-contactus__inputContainer
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 1rem;
+}
+.main-contactus__inputLabel
+{
+    font-size:1.2rem;
+    margin-bottom: 0.3rem;
+}
+.main-contactus__inputContainer input,
+.main-contactus__inputContainer textarea
+{
+border:1px solid rgba(0, 0, 0, 0.055);
+padding:0.5rem 0.3rem;
+outline: none;
+}
+.main-contactus__inputContainer input:focus,
+.main-contactus__inputContainer textarea:focus
+{
+   border-color: #dd6a4d2f;
+}
+.btn{
+    padding:0.8rem 0.8rem;
+        background-color:#dd6b4d;
+        font-size:1.2rem;
+        font-weight:300;
+        color: #fff;
+        border-radius:0.5rem;
+        border:none;
+        outline: none;
+        cursor: pointer;
+    }
+    .btn:hover{
+        background-color:#000;
+    }
+    .form__upload
+    {
+        display: none;
+    }
+    .img-label
+    {
+        color:#dd6b4d;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+.view-team-lists
+{
+    padding:0.5rem 1rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.432);
+    height:300px;
+    overflow-y: scroll;
+}
+.view-team-lists::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  /* Track */
+  .view-team-lists::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 5px grey;
+            box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  .view-team-lists::-webkit-scrollbar-thumb {
+    background: #dd6b4d;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  .view-team-lists::-webkit-scrollbar-thumb:hover {
+    background: #dd6b4d; 
+  }
+.view-team-list,.view-career-list
+{
+    display: flex;
+    
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.082);
+    margin-bottom: 1rem;
+    padding:1rem;
+    position: relative;
+
+}
+.view-team-info h2,.view-career-info h2{
+    font-size:1.1rem;
+    width:80%;
+}
+.view-team-info p,.view-career-info p{
+    font-size:0.9rem;
+    width:70%;
+}
+.view-team-img
+{
+    margin-right:1rem;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+}
+.view-team-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.view-team-edit,.view-career-edit
+{
+    position:absolute;
+    right:10%;
+    top:35%;
+}
+.view-team-edit .edit,.edit-career{
+    color:rgba(0, 0, 255, 0.555);
+    margin-right: 0.5rem;
+}
+.view-team-edit .delete,.delete-career{
+    color:rgba(245, 1, 1, 0.432);
+}
+.img-detail
+{
+    display: flex;
+    flex-direction: column;
+    
+}
+.view-team-img-image
+{
+     display: none;
+}
+.all-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}

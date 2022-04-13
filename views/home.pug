@@ -1,0 +1,126 @@
+extends base
+mixin TeamList(team)
+    .main-ourteam__imageBox
+        img.main-ourteam__imageBox--image(src=`img/team/${team.photo}` alt='#')
+        .main-ourteam__imageBox--imageBody
+            h3.main-ourteam__imageBox--heading= team.name
+            p.main-ourteam__imageBox--para= team.profession
+block cssStyle
+    link(rel='stylesheet' href='/css/style.css')
+block contents
+    header.header
+        nav.header-nav
+            .header-nav__logo
+                a.header-nav__logo-body(href='#') ExampleTech
+            .burgerMenu
+                img(src='./images/burgerMenu.jpg' alt='burger')
+            .header-nav__menu.close
+                .header-nav__menu--cross &cross;
+                ul.header-nav__menu--lists
+                    li.header-nav__menu--list
+                        a(href='/') Home
+                    li.header-nav__menu--list
+                        a(href='#sectionI') About
+                    li.header-nav__menu--list
+                        a(href='#sectionII') Team
+                    li.header-nav__menu--list
+                        a(href='#sectionIII') Services
+                    li.header-nav__menu--list
+                        a(href='/career') Career
+        .header-body
+            .header-body__title
+                h1 We are the best tech company in Nepal
+            button.header-body__cta.btn Get in Touch
+        .header-body__downarrow
+            | &#x2304;
+
+    main
+        section#sectionI.main-aboutus
+            h1.main-aboutus__heading.main-heading Who We Are
+            .main-aboutus__body
+                .main-aboutus__body--image
+                    img(src='img/img5.jpg' alt='aboutus')
+                .main-aboutus__body--topic
+                    h2.main-aboutus__body--heading.mainh2heading For the next great business 
+                    p.main-aboutus__body--para Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus quis, hic provident quaerat sit animi eaque voluptatum assumenda.
+                    ul.main-aboutus__body--lists
+                        li.main-aboutus__body--list
+                            span &check; Lorem ipsum dolor sit amet,menda porro?
+                        li.main-aboutus__body--list
+                            span &check; Lorem ipsum dolor sit amet,menda porro?
+                        li.main-aboutus__body--list
+                            span &check; | Lorem ipsum dolor sit amet,menda porro?
+                        li.main-aboutus__body--list
+                            span &check; Lorem ipsum dolor sit amet,menda porro?
+                    button.main-aboutus__bodyBtn.btn Get in Touch
+        section#sectionII.main-ourteam
+            h1.main-ourteam__heading.main-heading Our Team
+            p.main-ourteam__para Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium dignissimos nobis possimus ut facilis excepturi
+
+            .main-ourteam__imageContainer
+                each team in teams
+                    +TeamList(team)
+                            
+            
+        section#sectionIII.main-ourservices
+            h1.main-ourteam__heading.main-heading Our Services
+            .main-ourteam__container
+                .main-ourteam__serviceBox
+                    img.main-ourteam__serviceBox--icon(src='img/webApp.jpg' alt='webapp')
+                    h3.main-ourteam__serviceBox--title Web Application
+                    p.main-ourteam__serviceBox--para Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur commodi inventore veritatis, vero quisquam provident facilis,
+                .main-ourteam__serviceBox
+                    img.main-ourteam__serviceBox--icon(src='img/mobIcon.jpg' alt='webapp')
+                    h3.main-ourteam__serviceBox--title Web Application
+                    p.main-ourteam__serviceBox--para Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur commodi inventore veritatis, vero quisquam provident facilis,
+                .main-ourteam__serviceBox
+                    img.main-ourteam__serviceBox--icon(src='img/seo.jpg' alt='webapp')
+                    h3.main-ourteam__serviceBox--title Web Application
+                    p.main-ourteam__serviceBox--para Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur commodi inventore veritatis, vero quisquam provident facilis,
+                
+        
+        section.main-contactus
+            h1.main-contactus__heading.main-heading Contact Us
+            .main-contactus__container
+                .main-contactus__companyinfo
+                    .main-contactus__upperPart
+                        .main-contactus__contactInfo
+                            img.main-contactus__contactInfo--img(src='img/location.jpg' alt='location')
+                            .main-contactus__locationContainer
+                                h2 Location
+                                p Butwal tira
+                        .main-contactus__contactInfo
+                            img.main-contactus__contactInfo--img(src='img/emai.jpg' alt='email')
+                            .main-contactus__locationContainer
+                                h2 Email
+                                p email@Exampletech.com
+                        .main-contactus__contactInfo
+                            img.main-contactus__contactInfo--img(src='img/phone.jpg' alt='phone')
+                            .main-contactus__locationContainer
+                                h2 Phone
+                                p +9779876543210
+                    .main-contactus__map
+                        iframe.main-contactus__map--mapbody(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1802079.6860416366!2d81.42240698935353!3d28.09509228452946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3996792b4a4e0281%3A0xc835dc3d3bbe52ea!2sLumbini%20Province!5e0!3m2!1sen!2snp!4v1646659764604!5m2!1sen!2snp' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy')
+                .main-contactus__contactform
+                    form.main-contactus__form
+                        .main-contactus__inputContainer
+                            label.main-contactus__inputLabel First Name
+                            input(type='text' id="firstname" name='firstname' required='')
+                        .main-contactus__inputContainer
+                            label.main-contactus__inputLabel Last Name
+                            input(type='text' id="lastname" name='lastname' required='')
+                        .main-contactus__inputContainer
+                            label.main-contactus__inputLabel Email
+                            input(type='email' id="email" name='email' required='')
+                        .main-contactus__inputContainer
+                            label.main-contactus__inputLabel Subect
+                            input(type='text' id="subject" name='subject' required='')
+                        .main-contactus__inputContainer
+                            label.main-contactus__inputLabel Message
+                            textarea(name='message' id="message" rows='10' required='')
+                        .main-contactus__inputContainer
+                            button.main-contactus__btn.btn Send Message
+block javascript
+    script(src="/js/share.js")
+    script(src="/js/sendEmail.js")
+

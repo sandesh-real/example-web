@@ -1,0 +1,59 @@
+extends base
+block cssStyle
+    link(rel='stylesheet' href='/css/career/career.css')
+block contents
+    header.header
+        nav.header-nav
+            .header-nav__logo
+                a.header-nav__logo-body(href='#') ExampleTech
+            .burgerMenu
+                img(src='img/burgerMenu.jpg' alt='burger')
+            .header-nav__menu.close
+                .header-nav__menu--cross &cross;
+                ul.header-nav__menu--lists
+                    li.header-nav__menu--list
+                        a(href='/') Home
+
+    main.main
+        .header-body
+            h1.header-body__title Explore Opportunities at RominTech
+            //- .header-body__searchbox
+            //-     input.header-body__inputsearch(type='text' placeholder='Search Job')
+            //-     button.jobsearchbtn.btn Search
+        .main-career
+            //- .main-career__shorting
+            //-     h2 Showing 1-5 of 5 jobs
+            //-     button.main-career__shortingBtn.btn Sort By
+            each career in careers
+                .main-career__alllists
+                    .main-career__jobinfo
+                        .main-career__joblistinfo
+                            h3.main-career__jobtitle= career.jobtitle
+                            p.main-career__jobduration= `${Math.trunc((career.jobduration-new Date())/8.64e+7)} days remaining`
+                            p.main-career__jobshortinfo= career.jobdescription
+                            .main-career__jobinfoDetail.close-careerinfo
+                                .job-desc
+                                    span.job-desc-title Job Level: 
+                                    span= career.joblevel
+                                .job-desc
+                                    span.job-desc-title Offered Salary: 
+                                    span= career.offeredSalary
+                                .job-desc
+                                    span.job-desc-title Apply Before(Deadline): 
+                                    span= `${career.applybefore.getFullYear()}-${career.applybefore.toLocaleString("en-US",{month:'2-digit'})}-${career.applybefore.toLocaleString("en-US",{day:"2-digit"})}`
+                                .job-desc
+                                    span.job-desc-title Education Level: 
+                                    span= career.education
+                                .job-desc
+                                    span.job-desc-title Experience Required: 
+                                    span= career.experience
+                          
+                            .main-career__jobsearchbtn
+                                button.main-career__jobsearchbtn--readmore ReadMore
+                                button.main-career__jobsearchbtn--apply Apply
+                        .main-career__noofjob
+                            span Opening
+                            span 5
+block javascript
+    script(src="/js/share.js")
+    script(src="/js/career.js")

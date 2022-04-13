@@ -1,0 +1,265 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
+
+.header{
+   
+    background-image: none;
+    height:20vh;
+   
+
+}
+.header-nav__logo-body
+{
+    color:#000;
+}
+ .header-nav__menu--lists li a
+{
+    color:#000;
+}
+.header-nav
+{
+    border-bottom: 0.1px solid rgba(0, 0, 0, 0.1);
+}
+
+/*main start */
+.main{
+
+    width:100%;
+    height:100%;
+}
+ 
+.header-body{
+ 
+
+    display: -webkit-box;
+ 
+
+    display: -ms-flexbox;
+ 
+
+    display: flex;
+    -webkit-box-orient:vertical;
+    -webkit-box-direction:normal;
+        -ms-flex-direction:column;
+            flex-direction:column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width:100%;
+    margin: 2rem 0;
+}
+.header-body__title{
+    text-align: center;
+    font-size:1rem;
+    width:100%;
+}
+.header-body__searchbox
+{
+    text-align: center;
+    margin-top:1rem;
+}
+.header-body__inputsearch
+{
+ border-radius:0.5rem;
+    padding:0.5rem 0.5rem;
+    outline:none;
+    border:1px solid rgba(0, 0, 0, 0.205);
+    margin-right:0.5rem;
+}
+.jobsearchbtn{
+    padding:0.5rem 1rem;
+    font-size:1rem;
+    
+
+}
+
+.main-career
+{
+    
+  
+   width: 100%;
+ 
+    height:auto;
+    padding:1rem 0.8rem;
+    background-color: rgba(235, 231, 231, 0.24);
+    margin:2rem 0;
+}
+.main-career__shorting{
+    padding:1rem 0;
+    border-bottom:1px solid rgba(0, 0, 0, 0.205);
+    margin-bottom: 1rem;
+}
+
+.main-career__shorting
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+.main-career__shorting h2{
+    font-size:1.2rem;
+    line-height: 2;
+}
+.main-career__shortingBtn
+{
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
+.main-career__jobinfo
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding:1rem 0;
+    border-bottom:1px solid rgba(0, 0, 0, 0.205);
+
+}
+.main-career__jobtitle
+{
+    color:#dd6b4d;
+}
+.main-career__jobduration
+{
+    font-size:0.8rem;
+    margin-bottom: 0.8rem;
+}
+.main-career__jobsearchbtn
+{
+    margin-top:0.5rem;
+}
+.main-career__jobsearchbtn button{
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right:0.7rem;
+    
+}
+.main-career__jobsearchbtn--apply span
+{
+opacity: 0;
+}
+.main-career__jobsearchbtn span
+{
+    font-size: 1.3rem;
+}
+.main-career__jobsearchbtn button{
+    padding:0.5rem 0.6rem;
+    border: none;
+    outline:none;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.main-career__noofjob
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+    background-color: #dd6b4d;
+    height:70px;
+    margin:1rem auto;  
+    padding:1rem 0;
+    width: 100%;
+    -webkit-box-shadow: 1px 1px 8px   rgba(0, 0, 0, 0.062);
+            box-shadow: 1px 1px 8px   rgba(0, 0, 0, 0.062);
+
+}
+.main-career__noofjob span{
+    color:#fff;
+}
+.main-career__jobinfoDetail
+{
+  margin-top:1rem;
+}
+.job-desc
+{
+    border-bottom:1px solid rgba(0, 0, 0, 0.205);
+    padding:0.8rem 0;
+}
+.job-desc-title
+{
+    font-weight: bold;
+}
+.close-careerinfo{
+    height:0;
+    display:none;
+}
+.job-descClose{
+    
+}
+
+/*responsive start */
+@media (min-width:50rem)
+{
+    .header-body__title{
+        font-size: 2rem;
+    }
+    .header-body__searchbox{
+        width: 100%;
+        max-width: 900px;
+    }
+    .header-body__inputsearch
+    {
+        width: 50%;
+        padding:0.8rem 0.5rem;
+        font-size:1rem ;
+
+    }
+    .jobsearchbtn
+    {
+        padding:0.8rem 0.8rem; 
+    }
+   .main-career{
+       padding:1rem 1.5rem;
+   }
+   .main-career__jobinfo
+   {
+       -webkit-box-orient: horizontal;
+       -webkit-box-direction: normal;
+           -ms-flex-direction: row;
+               flex-direction: row;
+       -webkit-box-pack: justify;
+           -ms-flex-pack: justify;
+               justify-content: space-between;
+
+   }
+   .main-career__shorting h2{
+       font-size:1.5rem;
+   }
+   .main-career__noofjob{
+      margin:1rem 0;
+       width: 20%;
+       border-radius: 0.7rem;
+   }
+   .main-career__jobshortinfo
+   {
+       font-size:1.2rem;
+   }
+   .main-career__noofjob span
+   {
+font-size:1.2rem;
+   }
+   .main-career__jobsearchbtn button{
+    vertical-align: middle;
+    font-size:1rem;
+
+    
+}
+
+}

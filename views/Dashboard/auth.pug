@@ -1,0 +1,18 @@
+extends base
+block cssStyle
+    link(rel='stylesheet' href='/css/auth.css')
+block content
+    .container
+        .form-container
+            form
+                .email-container
+                    label.label-email(id="email") Email
+                    input.input-email(type="email" name="email" id="email" required )
+                    
+                .password-container
+                    label.label-password(id="password") Password
+                    input.input-password(type="password" name="password" id="password" required )
+                button.login-btn(type="submit") Login
+block javascript
+    script(src="/js/Dashboard/auth.js")
+                    

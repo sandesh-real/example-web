@@ -1,0 +1,47 @@
+html{
+    height:100%;
+}
+body{
+    height:100%;
+    font-family: 'Work Sans', sans-serif;
+}
+.container{
+  position:relative;
+  height: 100%;;
+}
+.form-container
+{
+    position:absolute;
+    top:30%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(250, 235, 215, 0.507);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.048);
+    padding:2rem 2rem;
+}
+.email-container,
+.password-container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom:1rem;
+
+}
+
+.email-container label,
+.password-container label{
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+.email-container input,
+.password-container input{
+  padding:0.5rem 0.5rem;
+  border:1px solid rgba(39, 39, 39, 0.089);
+}
+.login-btn{
+    border:none;
+    padding:0.6rem 1rem;
+    background-color: #dd6b4d;
+    color:#fff;
+    width: 100%;
+    font-size:1.2rem;
+}

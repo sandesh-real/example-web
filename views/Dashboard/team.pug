@@ -1,0 +1,98 @@
+extends base
+mixin CareerList(career)
+    .view-career-list
+
+        .view-career-info 
+            h2= career.jobtitle
+            p= career.jobdescription
+        .view-career-edit
+            span.edit-career(id=`${career._id}` data-career=`${JSON.stringify(career)}`) Edit 
+            span.delete-career(id=`${career._id}`) Delete
+mixin TeamList(team)
+    .view-team-list
+        .view-team-img
+            img(src=`/img/team/${team.photo}` alt=`${team.photo}`)
+        .view-team-info 
+            h2= team.name
+            p= team.profession
+        .view-team-edit.career-edit
+            span.edit(id=`${team._id}`) Edit 
+            span.delete(id=`${team._id}`) Delete
+block cssStyle
+    link(rel='stylesheet' href='/css/dashboard/team.css')
+block content
+    .form-container
+        .center
+            
+            .all-container
+                h3.create-team-title Create Team
+                .team-container
+                    .create-team
+                        form.main-create-team__form
+                            .main-contactus__inputContainer
+                                label.main-contactus__inputLabel Name
+                                input(type='text' id="name" name='name' required='')
+                            .main-contactus__inputContainer
+                                label.main-contactus__inputLabel Profession
+                                input(type='text' id="profession" name='profession' required='')
+                            .main-contactus__inputContainer.img-detail
+                                .img-fileopner
+                                    input.form__upload(type="file" accept="image/*" id="photo" name="photo")
+                                    label.img-label(for="photo") Choose new Photo
+                                .view-team-img
+                                    img.view-team-img-image(src=`#` alt=`img`)
+                            .main-contactus__inputContainer
+                                button.main-contactus__btn.btn Create
+                    .view-team
+                        .view-team-container
+                            div.view-team-lists
+                                -if(teams.length>0)
+                                each team in teams
+                                    +TeamList(team)
+                h3.create-team-title Create Career
+                .career-container
+                    
+                    .create-team
+                        form.main-create-team__form
+                            .main-contactus__inputContainer
+                                label.main-contactus__inputLabel Jobtitle
+                                input(type='text' id="jobtitle" name='jobtitle' required='')
+                            .main-contactus__inputContainer
+                                label.main-contactus__inputLabel Jobduration
+                                input(type='date'  id="jobduration" name='jobduration' required='')
+                            .main-contactus__inputContainer
+                                label.main-contactus__inputLabel Jobdescription
+                                input(type='text' id="jobdescription" name='jobdescription' required='')
+                            .main-contactus__inputContainer
+                                label.main-contactus__inputLabel Joblevel
+                                input(type='text' id="joblevel" name='joblevel' required='')
+
+                            .main-contactus__inputContainer
+                                label.main-contactus__inputLabel OfferedSalary
+                                input(type='text' id="offeredSalary" name='offeredSalary' required='')
+                            .main-contactus__inputContainer
+                                label.main-contactus__inputLabel Applybefore
+                                input(type='date' id="applybefore" name='applybefore' required='')
+
+                            .main-contactus__inputContainer
+                                label.main-contactus__inputLabel Education
+                                input(type='text' id="education" name='education' required='')
+                            .main-contactus__inputContainer
+                                label.main-contactus__inputLabel Experience
+                                input(type='text' id="experience" name='experience' required='')
+
+                            .main-contactus__inputContainer
+                                button.main-contactus__btn-career.btn Create
+                    .view-team
+                        .view-team-container
+                            div.view-team-lists
+                                -if(careers.length>0)
+                                each career in careers
+                                    +CareerList(career)
+                
+                
+block javascript
+    script(src="/js/Dashboard/team.js")
+        
+                
+                
