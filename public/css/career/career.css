@@ -145,6 +145,14 @@
     margin-right:0.7rem;
     
 }
+.main-career__jobsearchbtn--apply
+{
+    text-decoration: none;
+        background-color: rgb(239, 239, 239);
+        padding:0.4rem 0.6rem;
+        display: inline-block;
+        font-weight: 700;
+}
 .main-career__jobsearchbtn--apply span
 {
 opacity: 0;
@@ -260,6 +268,9 @@ font-size:1.2rem;
     font-size:1rem;
 
     
+}
+.main-career__jobsearchbtn--apply{
+    padding:0.5rem 0.6rem;
 }
 
 }

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const careerSchema = new mongoose.Schema({
   jobtitle: String,
-  jobduration: Date,
+
   jobdescription: String,
   joblevel: String,
   offeredSalary: String,

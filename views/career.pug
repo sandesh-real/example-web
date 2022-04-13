@@ -29,7 +29,7 @@ block contents
                     .main-career__jobinfo
                         .main-career__joblistinfo
                             h3.main-career__jobtitle= career.jobtitle
-                            p.main-career__jobduration= `${Math.trunc((career.jobduration-new Date())/8.64e+7)} days remaining`
+                            p.main-career__jobduration= `${Math.trunc((career.applybefore-new Date())/8.64e+7)} days remaining`
                             p.main-career__jobshortinfo= career.jobdescription
                             .main-career__jobinfoDetail.close-careerinfo
                                 .job-desc
@@ -50,7 +50,7 @@ block contents
                           
                             .main-career__jobsearchbtn
                                 button.main-career__jobsearchbtn--readmore ReadMore
-                                button.main-career__jobsearchbtn--apply Apply
+                                a.main-career__jobsearchbtn--apply(href="https://docs.google.com/forms/d/1S952JBuv31-Ww_sIjnYS72sC_ZKKcZB5pwHSi6Wv0xo/viewform?fbclid=IwAR3WLudLBE58MP1CtiJteUUtgsqLof1CKVBIB3upzfZZuKv0oCzH7deF8UI&edit_requested=true") Apply
                         .main-career__noofjob
                             span Opening
                             span= career.opening

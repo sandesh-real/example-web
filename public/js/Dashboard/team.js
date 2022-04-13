@@ -109,7 +109,6 @@ const team = () => {
 
   //career create part
   const JobTitle = document.querySelector("#jobtitle");
-  const JobDuration = document.querySelector("#jobduration");
 
   const JobDescription = document.querySelector("#jobdescription");
   const JobLevel = document.querySelector("#joblevel");
@@ -122,7 +121,7 @@ const team = () => {
     careerCreateBtn.addEventListener("click", (e) => {
       const data = {
         jobtitle: JobTitle.value,
-        jobduration: JobDuration.value,
+
         jobdescription: JobDescription.value,
         experience: Experience.value,
         joblevel: JobLevel.value,
@@ -155,7 +154,7 @@ const team = () => {
 
         const {
           jobtitle,
-          jobduration,
+
           jobdescription,
           experience,
           joblevel,
@@ -166,7 +165,7 @@ const team = () => {
         } = JSON.parse(e.target.dataset.career);
 
         JobTitle.value = jobtitle;
-        JobDuration.value = jobduration.slice(0, 10);
+
         JobDescription.value = jobdescription;
         Experience.value = experience;
         JobLevel.value = joblevel;
