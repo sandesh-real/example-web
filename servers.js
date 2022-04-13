@@ -3,8 +3,16 @@ const app = require("./app");
 
 const dotenv = require("dotenv");
 dotenv.config({ path: "./config.env" });
-mongoose.connect(process.env.DATABASE_LOCAL).then(() => {
-  console.log("Db connected");
+const DB = process.env.DATABASE.replace(
+  "<PASSWORD>",
+  process.env.DATABASE_PASSWORD
+);
+
+console.log(DB);
+mongoose.connect(DB, {
+  useNewUrlParser: true,
+
+  useUnifiedTopology: true,
 });
 app.listen(process.env.PORT, () => {
   console.log("server started");
