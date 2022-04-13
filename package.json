@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon servers.js",
+    "dev": "nodemon servers.js",
+    "start":"node servers.js",
     "watch:js": "parcel watch ./public/js/Dashboard/index.js --out-dir ./public/js/Dashboard/ --out-file bundle.js",
     "watch2:js": "parcel watch ./public/js/index.js --out-dir ./public/js/ --out-file bundle.js",
     "build2:js": "parcel build ./public/js/index.js --out-dir ./public/js/ --out-file bundle.js",
@@ -29,5 +30,6 @@
     "parcel-bundler": "^1.12.3",
     "pug": "^3.0.2",
     "sharp": "^0.30.3"
-  }
+  },
+  "engines":{"node":">=10.0.0"}
 }
