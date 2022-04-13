@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const { promisify } = require("util");
+const { findOne, findById } = require("../models/User");
 const signToken = (userId) => {
   return jwt.sign({ id: userId }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
@@ -31,7 +32,7 @@ exports.signup = async (req, res) => {
       passwordConfirm: req.body.passwordConfirm,
       role: req.body.role,
     });
-    console.log(newUser);
+
     createSignToken(newUser, 201, res);
   } catch (e) {
     console.log(e);
@@ -47,7 +48,6 @@ exports.login = async (req, res) => {
       });
     }
     const user = await User.findOne({ email: email }).select("+password");
-    console.log(user);
 
     if (!user || !(await user.correctPassword(password, user.password))) {
       return res.status(401).json({
@@ -80,6 +80,25 @@ exports.protect = async (req, res, next) => {
   }
 
   req.user = freshUser;
+  next();
+};
+exports.isLoggedIn = async (req, res, next) => {
+  if (req.cookies.jwt) {
+    try {
+      const decode = await promisify(jwt.verify)(
+        req.cookies.jwt,
+        process.env.JWT_SECRET
+      );
+      const freshUser = await User.findById(decode.id);
+      if (!freshUser) {
+        return next();
+      }
+      res.isLoggedIn = true;
+      return next();
+    } catch (e) {
+      return next();
+    }
+  }
   next();
 };
 

@@ -8,6 +8,7 @@ const careerSchema = new mongoose.Schema({
   applybefore: Date,
   education: String,
   experience: String,
+  opening: String,
 });
 const Career = mongoose.model("Career", careerSchema);
 module.exports = Career;

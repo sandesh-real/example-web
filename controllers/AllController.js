@@ -31,18 +31,19 @@ exports.resizeUserPhoto = (req, res, next) => {
 };
 exports.createTeam = async (req, res) => {
   try {
-    console.log(req.body);
     if (req.body) {
       if (req.file) {
         req.body.photo = req.file.filename;
       }
-      console.log(req.body);
+
       const team = await Team.create(req.body);
-      console.log(team);
+
       res.status(201).json({
         status: "success",
+
         data: {
           team,
+          message: "Team created successfully!!!",
         },
       });
     }
@@ -56,15 +57,16 @@ exports.updateTeam = async (req, res) => {
       if (req.file) {
         req.body.photo = req.file.filename;
       }
-      console.log(req.body);
+
       const team = await Team.findByIdAndUpdate(req.body.id, req.body, {
         new: true,
       });
-      console.log(team);
+
       res.status(201).json({
         status: "success",
         data: {
           team,
+          message: "Team updated successfully!!!",
         },
       });
     }
@@ -94,14 +96,14 @@ exports.getCareer = async (req, res) => {
   }
 };
 exports.createCareer = async (req, res) => {
-  console.log(req.body);
   try {
     const career = await Career.create(req.body);
-    console.log(career);
+
     res.status(201).json({
       status: "success",
       data: {
         career,
+        message: "Career created successfully!!!",
       },
     });
   } catch (e) {
@@ -110,26 +112,53 @@ exports.createCareer = async (req, res) => {
 };
 
 exports.updateCareer = async (req, res) => {
-  console.log(req.body);
   try {
     const career = await Career.findByIdAndUpdate(req.body.id, req.body, {
       new: true,
     });
-    console.log(career);
+
     res.status(201).json({
       status: "success",
       data: {
         career,
+        message: "Career updated successfully!!!",
       },
     });
   } catch (e) {
     console.log(e);
   }
 };
-exports.sendEmail = async (req, res) => {
-  console.log(req.body);
-  await new Email({
-    firstname: req.body.firstname,
-    email: req.body.email,
-  }).sendWelcome();
+exports.deleteTeam = async (req, res) => {
+  try {
+    console.log(req.body.id);
+    const document = await Team.findByIdAndDelete(req.body.id);
+    console.log(document);
+    if (!document) {
+      return res.status(404).json({
+        status: "error",
+        message: "No document found with tha ID",
+      });
+    }
+    res.status(204).json({
+      status: "success",
+      data: {
+        message: "Career updated successfully!!!",
+      },
+    });
+  } catch (e) {
+    console.log(e);
+  }
+};
+exports.deleteCareer = async (req, res) => {
+  const document = await Career.findByIdAndDelete(req.body.id);
+  if (!document) {
+    return res.status(404).json({
+      status: "error",
+      message: "No document found with tha ID",
+    });
+  }
+  res.status(204).json({
+    status: "success",
+    data: null,
+  });
 };

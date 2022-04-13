@@ -29,5 +29,11 @@ Router.patch(
   UserController.protect,
   AllController.updateCareer
 );
+Router.delete("/deleteTeam", UserController.protect, AllController.deleteTeam);
+Router.delete(
+  "/deleteCareer",
+  UserController.protect,
+  AllController.deleteCareer
+);
 // Router.post("/sendEmail", UserController.protect, AllController.sendEmail);
 module.exports = Router;

@@ -4,13 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon servers.js"
+    "start": "nodemon servers.js",
+    "watch:js": "parcel watch ./public/js/Dashboard/index.js --out-dir ./public/js/Dashboard/ --out-file bundle.js",
+    "watch2:js": "parcel watch ./public/js/index.js --out-dir ./public/js/ --out-file bundle.js",
+    "build2:js": "parcel build ./public/js/index.js --out-dir ./public/js/ --out-file bundle.js",
+    
+    "build:js": "parcel build ./public/js/Dashboard/index.js --out-dir ./public/js/Dashboard/ --out-file bundle.js"
+
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.26.1",
     "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
