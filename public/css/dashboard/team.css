@@ -153,9 +153,11 @@ outline: none;
 .view-team-edit .edit,.edit-career{
     color:rgba(0, 0, 255, 0.555);
     margin-right: 0.5rem;
+    cursor: pointer;
 }
 .view-team-edit .delete,.delete-career{
     color:rgba(245, 1, 1, 0.432);
+    cursor: pointer;
 }
 .img-detail
 {
@@ -196,4 +198,18 @@ outline: none;
   }
   .alert--error {
     background-color: #eb4d4b;
+  }
+  .loading-container
+  {
+      position:fixed;
+        top:0;
+        left:0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.315);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: none;
+
   }

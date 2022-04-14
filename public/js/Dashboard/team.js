@@ -1,4 +1,5 @@
 const team = () => {
+  const imgLoading = document.querySelector(".loading-container");
   let teamNames = document.querySelector("#name");
   const profession = document.querySelector("#profession");
   const teamCreateBtn = document.querySelector(".main-contactus__btn.btn");
@@ -50,8 +51,9 @@ const team = () => {
           "Content-Type": "application/json",
         };
       }
-
+      imgLoading.style.display = "flex";
       const res = await fetch(url, fetchBody);
+      imgLoading.style.display = "none";
       const data = await res.json();
 
       if ((data.status = "success")) {
@@ -72,8 +74,9 @@ const team = () => {
           "Content-Type": "application/json",
         };
       }
-
+      imgLoading.style.display = "flex";
       const res = await fetch(url, fetchBody);
+      imgLoading.style.display = "none";
       const data = await res.json();
       if ((data.status = "success")) {
         showAlert("success", data.data.message);
@@ -183,10 +186,11 @@ const team = () => {
       .addEventListener("click", async (e) => {
         e.preventDefault();
         try {
+          imgLoading.style.display = "flex";
           const res = await fetch("/rominteach-admin-private/logout");
 
           const data = await res.json();
-
+          imgLoading.style.display = "none";
           if ((data.status = "Success"))
             location.assign("/rominteach-admin-private/");
         } catch (e) {
@@ -207,38 +211,49 @@ const team = () => {
   };
 
   //delete team and career
-  const deleteFun = (teamOrCareer, type, url) => {
-    if (document.querySelector(`.view-${teamOrCareer}-edit ${type} `)) {
-      console.log("help");
-      document
-        .querySelector(`.view-${teamOrCareer}-edit ${type}`)
-        .addEventListener("click", async (e) => {
-          const id = e.target.id;
-          console.log(id);
-          e.preventDefault();
-          try {
-            const res = await fetch(`/${url}`, {
-              method: "DELETE",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ id: id }),
-            });
-            console.log(res);
-            if (res.status === 204) {
-              showAlert("success", "delete successfully");
-              window.setTimeout(() => {
-                location.reload(true);
-              }, 1500);
-            }
-          } catch (e) {
-            console.log(e);
-          }
-        });
+  const deleteBtnFunction = async (e, url) => {
+    const id = e.target.id;
+    console.log(id);
+    e.preventDefault();
+    try {
+      imgLoading.style.display = "flex";
+      const res = await fetch(`/${url}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: id }),
+      });
+      imgLoading.style.display = "flex";
+      if (res.status === 204) {
+        showAlert("success", "delete successfully");
+        window.setTimeout(() => {
+          location.reload(true);
+        }, 1500);
+      }
+    } catch (e) {
+      console.log(e);
     }
   };
-  deleteFun("team", ".delete", "deleteTeam");
-  deleteFun("career", ".delete-career", "deleteCareer");
+
+  const teamEditDelete = document.querySelectorAll(".view-team-edit .delete");
+  if (teamEditDelete.length > 0) {
+    teamEditDelete.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        deleteBtnFunction(e, "deleteTeam");
+      });
+    });
+  }
+  const careerEditDelete = document.querySelectorAll(
+    ".view-career-edit .delete-career"
+  );
+  if (careerEditDelete.length > 0) {
+    careerEditDelete.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        deleteBtnFunction(e, "deleteCareer");
+      });
+    });
+  }
 };
 
 export default team;

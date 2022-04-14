@@ -15,6 +15,8 @@ html
 
     body
         include _header
+        .loading-container 
+            img(src="/img/load.gif" alt="loading")
         block content
         //- block javascript
         script(src="/js/Dashboard/bundle.js")
