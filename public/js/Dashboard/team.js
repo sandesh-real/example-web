@@ -51,16 +51,22 @@ const team = () => {
           "Content-Type": "application/json",
         };
       }
-      imgLoading.style.display = "flex";
-      const res = await fetch(url, fetchBody);
-      imgLoading.style.display = "none";
-      const data = await res.json();
+      try {
+        imgLoading.style.display = "flex";
+        const res = await fetch(url, fetchBody);
+        imgLoading.style.display = "none";
+        const data = await res.json();
 
-      if ((data.status = "success")) {
-        showAlert("success", data.data.message);
-        window.setTimeout(() => {
-          location.reload(true);
-        }, 1500);
+        if ((data.status = "success")) {
+          showAlert("success", data.data.message);
+          window.setTimeout(() => {
+            location.reload(true);
+          }, 1500);
+        }
+      } catch (e) {
+        console.log(e);
+        imgLoading.style.display = "none";
+        showAlert("error", data.data.message);
       }
     } else {
       const url = `/${link}`;
@@ -74,15 +80,20 @@ const team = () => {
           "Content-Type": "application/json",
         };
       }
-      imgLoading.style.display = "flex";
-      const res = await fetch(url, fetchBody);
-      imgLoading.style.display = "none";
-      const data = await res.json();
-      if ((data.status = "success")) {
-        showAlert("success", data.data.message);
-        window.setTimeout(() => {
-          location.reload(true);
-        }, 1500);
+      try {
+        imgLoading.style.display = "flex";
+        const res = await fetch(url, fetchBody);
+        imgLoading.style.display = "none";
+        const data = await res.json();
+        if ((data.status = "success")) {
+          showAlert("success", data.data.message);
+          window.setTimeout(() => {
+            location.reload(true);
+          }, 1500);
+        }
+      } catch (e) {
+        console.log(e);
+        imgLoading.style.display = "none";
       }
     }
   };

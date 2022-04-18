@@ -2,7 +2,10 @@ const mongoose = require("mongoose");
 const careerSchema = new mongoose.Schema({
   jobtitle: String,
 
-  jobdescription: String,
+  jobdescription: {
+    type: String,
+    required: [true, "jobdescription is required"],
+  },
   joblevel: String,
   offeredSalary: String,
   applybefore: Date,
